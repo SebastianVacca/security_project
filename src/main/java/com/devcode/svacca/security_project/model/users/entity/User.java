@@ -20,6 +20,7 @@ import lombok.Data;
 public class User {
     
     @Id
+    @Column(length = 50)
     private String username;
 
     @Column(length = 100, nullable = false, unique = true)
