@@ -1,18 +1,14 @@
 package com.devcode.svacca.security_project.repository.roles;
 
-import java.util.List;
+import java.util.Optional;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import com.devcode.svacca.security_project.model.users.dto.CreateUser;
-import com.devcode.svacca.security_project.model.users.dto.ResponseUser;
-import com.devcode.svacca.security_project.model.users.dto.UpdateUser;
-import com.devcode.svacca.security_project.model.users.entity.User;
+import com.devcode.svacca.security_project.model.roles.entity.Role;
 
 
-public interface RoleRepository extends JpaRepository<User, String>{
-    public ResponseUser create(CreateUser request);
-    public ResponseUser update(UpdateUser request);
-    public List<ResponseUser> getAll();
-    public ResponseUser getByName(String name) ;
+public interface RoleRepository extends JpaRepository<Role, Long>{
+
+    Optional<Role> findByName(String name);
+    
 }
