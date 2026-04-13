@@ -1,0 +1,37 @@
+###
+GET http://localhost:8080/api/users
+
+###
+POST http://localhost:8080/api/users
+Content-Type: application/json
+
+{
+    "username": "jvacca",
+    "password": "jvacca123",
+    "email": "clanbs11.12@gmail.com",
+    "name": "Juan Vacca",
+    "roles": [
+        "ADMIN",
+        "USER"
+    ]
+}
+
+###
+PUT http://localhost:8080/api/users/edit/jvacca
+Content-Type: application/json
+
+{
+    "username": "jvacca",
+    "email": "clanbs11.12@gmail.com",
+    "name": "Juan Vacca",
+    "roles": [
+        "ADMIN",
+        "USER"
+    ]
+}
+
+###
+PATCH http://localhost:8080/api/users/jvacca/activate
+
+###
+PATCH http://localhost:8080/api/users/jvacca/deactivate
