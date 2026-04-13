@@ -3,7 +3,7 @@ package com.devcode.svacca.security_project.model.users.entity;
 import java.time.LocalDate;
 import java.util.Set;
 
-import org.springframework.context.support.BeanDefinitionDsl.Role;
+import com.devcode.svacca.security_project.model.roles.entity.Role;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
