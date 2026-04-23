@@ -3,6 +3,7 @@ package com.devcode.svacca.security_project.mapper.users;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 
+import com.devcode.svacca.security_project.model.auth.dto.RegisterUserDto;
 import com.devcode.svacca.security_project.model.roles.entity.Role;
 import com.devcode.svacca.security_project.model.users.dto.CreateUser;
 import com.devcode.svacca.security_project.model.users.dto.ResponseUser;
@@ -21,6 +22,11 @@ public interface UserMapper {
     @Mapping(target = "active", ignore = true)
     @Mapping(target = "roles", ignore = true)
     User toEntity(UpdateUser updateUser);
+
+    @Mapping(target = "hireDate", ignore = true)
+    @Mapping(target = "active", ignore = true)
+    @Mapping(target = "roles", ignore = true)
+    User toEntity(RegisterUserDto updateUser);
 
     ResponseUser toResponse(User user);
 

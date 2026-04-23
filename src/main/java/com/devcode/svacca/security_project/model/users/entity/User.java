@@ -7,6 +7,7 @@ import com.devcode.svacca.security_project.model.roles.entity.Role;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.JoinTable;
@@ -35,7 +36,7 @@ public class User {
     @Column(name = "hire_date")
     private LocalDate hireDate;
 
-    @ManyToMany
+    @ManyToMany(fetch = FetchType.LAZY)
     @JoinTable(name = "user_roles",
      joinColumns = @JoinColumn(columnDefinition = "user_id"),
      inverseJoinColumns = @JoinColumn(columnDefinition = "role_id")
