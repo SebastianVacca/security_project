@@ -2,11 +2,8 @@ package com.devcode.svacca.security_project.service.auth;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
-import java.util.List;
 import java.util.Map;
 import java.util.Set;
-
-import javax.management.RuntimeOperationsException;
 
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.BadCredentialsException;
