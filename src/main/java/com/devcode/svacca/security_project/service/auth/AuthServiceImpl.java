@@ -52,7 +52,7 @@ public class AuthServiceImpl implements AuthService {
                         .map(Role::getName)
                         .toList())));
 
-        return new LoginResponseDto(token, "CUSTOM");
+        return new LoginResponseDto(token, "JWT");
     }
 
     @Override
