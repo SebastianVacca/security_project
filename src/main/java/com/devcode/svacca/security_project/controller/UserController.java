@@ -44,6 +44,16 @@ public class UserController {
         return userService.create(request);
     }
 
+    /**
+     * Se utiliza la anotación @PreAuthorize para delegar la validación de la autoridad
+     * al controlador y ademas se le delega para que el usuarios cargado en el contexto
+     * pueda actulizar su información, esto se logra creando la clase PricipalInfo en la capa model
+     * y luego invocandola en JwtRequestFilter para que se construya
+     * @param username
+     * @param request
+     * @return
+     */
+    @PreAuthorize("hasAuthority('ADMIN') or principal.username == #username")
     @PutMapping("/edit/{username}")
     public ResponseUser update(@PathVariable String username, @RequestBody @Valid UpdateUser request) {
         return userService.update(request);

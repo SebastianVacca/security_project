@@ -11,6 +11,7 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Component;
 import org.springframework.web.filter.OncePerRequestFilter;
 
+import com.devcode.svacca.security_project.model.auth.dto.PrincipalInfo;
 import com.devcode.svacca.security_project.util.JwtUtils;
 
 import io.jsonwebtoken.Claims;
@@ -52,14 +53,16 @@ public class JwtRequestFilter extends OncePerRequestFilter {
                     return result;                  
 
                 });
+                var principal = new PrincipalInfo(email, username, name, hireDate );
+                // var principal = Map.of(
+                //                 "username", username,
+                //                 "email", email,
+                //                 "name", name,
+                //                 "hire_date", hireDate
+                //             ),
                 // Se agrega la información al contexto
                 var userToken = new UsernamePasswordAuthenticationToken(
-                        Map.of(
-                                "username", username,
-                                "email", email,
-                                "name", name,
-                                "hire_date", hireDate
-                            ),
+                        principal,
                         "",
                         roles);
 
