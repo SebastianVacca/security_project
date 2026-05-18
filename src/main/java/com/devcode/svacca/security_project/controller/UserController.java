@@ -3,6 +3,7 @@ package com.devcode.svacca.security_project.controller;
 import java.util.List;
 
 import org.springframework.http.HttpStatus;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -36,6 +37,7 @@ public class UserController {
         return userService.getAll();
     }
 
+    @PreAuthorize("hasAuthority('ADMIN')")
     @ResponseStatus(code = HttpStatus.CREATED)
     @PostMapping
     public ResponseUser create(@RequestBody @Valid CreateUser request) {

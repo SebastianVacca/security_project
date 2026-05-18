@@ -45,7 +45,8 @@ public class AuthServiceImpl implements AuthService {
 
         var user = userRepository.findById(request.username()).get();
         var token = String.format(jwtUtils.genrateToken(request.username(), Map.of(
-                "user", user.getUsername(),
+                "email", user.getEmail(),
+                "name", user.getName(),
                 "hire_date", user.getHireDate().format(DateTimeFormatter.ISO_DATE),
                 "roles", user.getRoles().stream()
                         .map(Role::getName)

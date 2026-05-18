@@ -1,17 +1,19 @@
 ###
 GET http://localhost:8080/api/users
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJqdmFjY2EiLCJlbWFpbCI6ImNsYW5iczExLjEyQGdtYWlsLmNvbSIsInJvbGVzIjpbIkFETUlOIiwiVVNFUiJdLCJoaXJlX2RhdGUiOiIyMDI2LTA0LTEyIiwibmFtZSI6Ikp1YW4gVmFjY2EiLCJpYXQiOjE3NzkwNzM3NzUsImV4cCI6MTc3OTE2MDE3NX0.KtxtG3sqUvke5vJlUVRWodNqMh5Owr1vB3xno3wt2S0
+
 
 ###
 POST http://localhost:8080/api/users
 Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJqdmFjY2EiLCJlbWFpbCI6ImNsYW5iczExLjEyQGdtYWlsLmNvbSIsInJvbGVzIjpbIkFETUlOIiwiVVNFUiJdLCJoaXJlX2RhdGUiOiIyMDI2LTA0LTEyIiwibmFtZSI6Ikp1YW4gVmFjY2EiLCJpYXQiOjE3NzkwNzM3NzUsImV4cCI6MTc3OTE2MDE3NX0.KtxtG3sqUvke5vJlUVRWodNqMh5Owr1vB3xno3wt2S0
 
 {
-    "username": "jvacca",
-    "password": "jvacca123",
-    "email": "clanbs11.12@gmail.com",
-    "name": "Juan Vacca",
+    "username": "prueba",
+    "password": "prueba",
+    "email": "prueba@gmail.com",
+    "name": "Prueba",
     "roles": [
-        "ADMIN",
         "USER"
     ]
 }

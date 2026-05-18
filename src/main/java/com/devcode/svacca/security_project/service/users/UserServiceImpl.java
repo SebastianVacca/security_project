@@ -4,6 +4,7 @@ import java.time.LocalDate;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import com.devcode.svacca.security_project.mapper.users.UserMapper;
@@ -22,12 +23,14 @@ public class UserServiceImpl implements UserService{
     private final UserRepository userRepository;
     private final RoleRepository roleRepository;
     private final UserMapper userMapper;
+    private final PasswordEncoder passwordEncoder;
 
     @Override
     public ResponseUser create(CreateUser request) {
         var user = userMapper.toEntity(request);
         user.setHireDate(LocalDate.now());
         user.setActive(true);
+        user.setPassword(passwordEncoder.encode((user.getPassword())));
 
         var roles = request.roles().stream()
             .map(r -> roleRepository.findByName(r).orElse(null))

@@ -46,7 +46,7 @@ public class JwtUtils {
         var claims = Jwts.parser()
                 .verifyWith(getSignInKey())
                 .build()
-                .parseUnsecuredClaims(token)
+                .parseSignedClaims(token)
                 .getPayload();
         
                 return claimsResolver.apply(claims);
